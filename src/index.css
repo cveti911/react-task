@@ -12,15 +12,19 @@ code {
     monospace;
 }
 
+/*
+Most of these are for visuals and to improve aestetics.
+It is important to note that touch-action was necessary due to the use of dnd-kit
+to enable moving the shapes on smaller (phone) divices.
+*/
+
 .quadrant{
   width: 100%;
   height: 50vh;
-  padding: 10px;
-  display: table;
   clear: both;
-  
+  display: flex;
+  flex-wrap: wrap;
 }
-
 .row{
   touch-action: none;
   display: flex;
@@ -29,8 +33,8 @@ code {
 
 .shape{
   touch-action: none;
-  width: 1vh;
+  width: 5vh;
   height: 5vh;
   font-size: 4vw;
-
+  margin: 1%;
 }

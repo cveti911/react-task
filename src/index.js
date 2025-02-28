@@ -5,6 +5,14 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 
+/*
+This is the entrypoint for the application.
+Only has reference to the top-most component App 
+of the component hierarchy that React follows.
+
+Note: In general I prefer to keep entrypoint files minimalistic, 
+unless working on shorter scripts.
+*/
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
