@@ -1,36 +1,87 @@
 import ReactDOM from 'react-dom'
+import React, {useState} from 'react';
 import Shape from './shape'
 import Quadrant from './Quadrant';
+import {DndContext} from '@dnd-kit/core';
 
 function App() {
+  const [shapes, setShapes] = useState([
+    {
+      id: 'S1',
+      groupId: 'Q1'
+    },
+    {
+      id: 'S2',
+      groupId: 'Q1'
+    },
+    {
+      id: 'S3',
+      groupId: 'Q1'
+    },
+    {
+      id: 'S4',
+      groupId: 'Q1'
+    },
+    {
+      id: 'S5',
+      groupId: 'Q1'
+    }
+  ]);
+
+  function handleDragEnd(event) {
+    if (!event.over) {
+      return;
+    }
+    else{
+      const updateShapes = shapes.map((shape)=>{
+        if (shape.id === event.active.id){
+          return {...shape, groupId: event.over.id};
+        }
+        return shape;
+      });
+      setShapes(updateShapes);
+    }
+  }
+
   return (
     <div className="App">
-      <div className='row'>
-        <Quadrant blue>
-          <Shape id={1} groupId={1} />
-          <Shape id={2} groupId={1}/>
-          <Shape id={3} groupId={1}/>
-          <Shape id={4} groupId={1}/>
-          <Shape id={5} groupId={1}/>
-        </Quadrant>
-        <Quadrant>
-        <Shape id={5} groupId={1}/>
-        <Shape id={5} groupId={1}/>
-        <Shape id={5} groupId={1}/>
-        </Quadrant>
-      </div>
-      <div className='row'>
-        <Quadrant>
-        <Shape id={5} groupId={1}/>
-        </Quadrant>
-        <Quadrant blue>
-        <Shape id={5} groupId={1}/>
-        <Shape id={5} groupId={1}/>
-        </Quadrant>
-      </div>
-
+      <DndContext onDragEnd={handleDragEnd}>
+        <div className='row'>
+          <Quadrant id={'Q1'} blue='CornflowerBlue'>
+            {shapes
+              .filter(shape => shape.groupId === 'Q1')
+              .map(shape => (
+                <Shape id={shape.id} groupId={shape.groupId} />
+              ))}
+          </Quadrant>
+          <Quadrant id={'Q2'}>
+            {shapes
+              .filter(shape => shape.groupId === 'Q2')
+              .map(shape => (
+                <Shape id={shape.id} groupId={shape.groupId} />
+              ))}
+          </Quadrant>
+        </div>
+        <div className='row'>
+          <Quadrant id={'Q3'}>
+            {shapes
+              .filter(shape => shape.groupId === 'Q3')
+              .map(shape => (
+                <Shape id={shape.id} groupId={shape.groupId} />
+              ))}
+          </Quadrant>
+          <Quadrant id={'Q4'} blue='CornflowerBlue'>
+            {shapes
+              .filter(shape => shape.groupId === 'Q4')
+              .map(shape => (
+                <Shape id={shape.id} groupId={shape.groupId} />
+              ))}
+          </Quadrant>
+        </div>
+      </DndContext>
     </div>
   );
+  
 }
 
 export default App;
