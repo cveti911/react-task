@@ -1,23 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import ReactDOM from 'react-dom'
+import Shape from './shape'
+import Quadrant from './Quadrant';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className='row'>
+        <Quadrant blue>
+          <Shape id={1} groupId={1} />
+          <Shape id={2} groupId={1}/>
+          <Shape id={3} groupId={1}/>
+          <Shape id={4} groupId={1}/>
+          <Shape id={5} groupId={1}/>
+        </Quadrant>
+        <Quadrant>
+        <Shape id={5} groupId={1}/>
+        <Shape id={5} groupId={1}/>
+        <Shape id={5} groupId={1}/>
+        </Quadrant>
+      </div>
+      <div className='row'>
+        <Quadrant>
+        <Shape id={5} groupId={1}/>
+        </Quadrant>
+        <Quadrant blue>
+        <Shape id={5} groupId={1}/>
+        <Shape id={5} groupId={1}/>
+        </Quadrant>
+      </div>
+
     </div>
   );
 }
