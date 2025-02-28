@@ -29,6 +29,8 @@ code {
 
 .shape{
   touch-action: none;
-  width: 10%;
+  width: 1vh;
   height: 5vh;
+  font-size: 4vw;
+
 }
