@@ -1,15 +1,26 @@
-# Getting Started with Create React App
+# Drag-and-Drop Shape Transformation Application
+
+Single-application that displays four distinct quadrants: Q1 - upper left, Q2 - upper right, Q3 - bottom left, Q4 - bottom right. Initially there are five circles displayed within Q1. Depending on where each shape is dragged and dropped the shape changes: Q1 - circle, Q2 - hexagon, Q3 - square, Q4 - triangle.
+
+## Pre-requisits
+
+To run the application be sure to have installed:
+
+- node.js from https://nodejs.org/en
+- dnd kit from https://dndkit.com/
+
+Run the following command:
+
+### `npm install`
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Running the project
 
-In the project directory, you can run:
+To run the application run:
 
 ### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Then open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Design
